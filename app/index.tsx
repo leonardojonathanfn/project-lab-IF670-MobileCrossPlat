@@ -1,33 +1,57 @@
 import { Stack } from "expo-router";
-import { Image, ScrollView, Text, View } from "react-native";
+import { ScrollView, View } from "react-native";
+import { Card, Avatar, Text } from "react-native-paper";
 import styles from "./AppStyles";
 import userData from "./data.json";
 
 export default function App() {
   return (
     <>
-      {/* Screen Name */}
       <Stack.Screen options={{ title: "User List" }} />
 
       <ScrollView>
         {userData.map((users, index) => (
           <View style={styles.container} key={index}>
-            <View style={styles.card}>
-              <Image
-                source={{ uri: users.photo_url }}
-                style={styles.avatar}
+            <Card style={{ width: 325 }}>
+              <Card.Title
+                title={users.name}
+                subtitle={users.email}
+                left={(props) => (
+                  <Avatar.Image {...props} source={{ uri: users.photo_url }} />
+                )}
               />
-              <View>
-                <Text style={styles.boldText}>{users.name}</Text>
-                <Text>{users.email}</Text>
-              </View>
-            </View>
+            </Card>
           </View>
         ))}
       </ScrollView>
     </>
   );
 }
+// export default function App() {
+//   return (
+//     <>
+//       {/* Screen Name */}
+//       <Stack.Screen options={{ title: "User List" }} />
+
+//       <ScrollView>
+//         {userData.map((users, index) => (
+//           <View style={styles.container} key={index}>
+//             <View style={styles.card}>
+//               <Image
+//                 source={{ uri: users.photo_url }}
+//                 style={styles.avatar}
+//               />
+//               <View>
+//                 <Text style={styles.boldText}>{users.name}</Text>
+//                 <Text>{users.email}</Text>
+//               </View>
+//             </View>
+//           </View>
+//         ))}
+//       </ScrollView>
+//     </>
+//   );
+// }
 
 // const styles = StyleSheet.create({
 //   container: {
