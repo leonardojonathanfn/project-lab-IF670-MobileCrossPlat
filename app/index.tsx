@@ -1,21 +1,13 @@
-import { Text, View,  StyleSheet } from 'react-native';
+import { Link, Stack } from "expo-router";
+import { View } from "react-native";
 
-export default function Index() {
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Home screen</Text>
-    </View>
+    <>
+      <Stack.Screen options={{ title: "Welcome" }} />
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Link href="/home">GO TO NAVIGATION LIST</Link>
+      </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: '#fff',
-  },
-});
