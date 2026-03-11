@@ -8,7 +8,7 @@ export default function home() {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>{userName}&apos;s Profile</Text>
 
-      <Link href="/home" push asChild>
+      <Link href="./home" push asChild>
         <Button
           title="Go to Home Screen"
         />
